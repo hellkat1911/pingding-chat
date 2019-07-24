@@ -1,23 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Chat
+###### _A React-based web application for real-time chat_
 
-## Available Scripts
+author: [hellkat_](https://github.com/hellkat1911)
 
-In the project directory, you can run:
+### Stack
+[React](https://reactjs.org) - a front-end JavaScript framework for creating reactive web applications
 
-### `npm start`
+[Express](https://expressjs.com/en/api.html) - a framework for Node.js servers
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Socket.io](https://socket.io) - a library that enables real-time, bidirectional and event-based communication between the browser and the server
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Scripts
 
-### `npm test`
+Available from the project root directory:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### `npm start`
 
-### `npm run build`
+Kicks off the React dev server and the Node chat server together.<br>
+Open [http://localhost:7777](http://localhost:7777) to view the app in the browser.
+
+The page will reload if you make edits, and shows linter errors in the console output.
+
+##### `npm front`
+
+Spins up just the React dev server at [http://localhost:7777](http://localhost:7777).
+
+##### `npm back`
+
+Runs only the chat server at [http://localhost:4000](http://localhost:4000).
+
+##### `npm run build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -25,9 +37,16 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
+(**Note:** the Node server does not require bundling, but must be deployed separately!)
+
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+##### `npm test`
+
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+##### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -37,32 +56,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+##### Proxy
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app is currently configured to proxy all non-matched URLs to localhost:4000, meaning that any routes not matching the app will automatically be forwarded to the back-end. This behavior can be changed in `package.json`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<hr>
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
