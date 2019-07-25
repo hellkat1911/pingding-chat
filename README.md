@@ -1,8 +1,6 @@
 ## React Chat
 ###### _A React-based web application for real-time chat_
 
-author: [hellkat_](https://github.com/hellkat1911)
-
 ### Stack
 [React](https://reactjs.org) - a front-end JavaScript framework for creating reactive web applications
 
@@ -63,3 +61,5 @@ The app is currently configured to proxy all non-matched URLs to localhost:4000,
 <hr>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+author: hellkat_ ([@hellkat_](https://twitter.com/hellkat_))
