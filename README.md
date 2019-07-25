@@ -62,4 +62,6 @@ The app is currently configured to proxy all non-matched URLs to localhost:4000,
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<hr>
+
 author: hellkat_ ([@hellkat_](https://twitter.com/hellkat_))
