@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
-import ChatPage from '../pages/ChatPage';
+import Router from './ChatRouter';
 
 const StyledMain = styled.main`
-  background-color: #ccc;
-  min-height: 100vh;
-  width: 100%;
+  background-color: #fff;
 `;
 
 const Page = () => {
   return (
     <StyledMain className="main">
-      <ChatPage />
+      <Router />
     </StyledMain>
   )
 }

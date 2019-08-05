@@ -1,12 +1,14 @@
-## React Chat
-###### _A React-based web application for real-time chat_
+## Pingding
+###### _A React-based real-time chat application_
 
 ### Stack
 [React](https://reactjs.org) - a front-end JavaScript framework for creating reactive web applications
 
-[Express](https://expressjs.com/en/api.html) - a framework for Node.js servers
+[React Router](https://github.com/ReactTraining/react-router) - a client-side router for React SPAs
 
-[Socket.io](https://socket.io) - a library that enables real-time, bidirectional and event-based communication between the browser and the server
+[Express](https://expressjs.com/en/api.html) - a popular framework for Node.js
+
+[Socket.io](https://socket.io) - a library that enables real-time, bidirectional and event-based communication between a client and server
 
 ### Scripts
 
@@ -56,10 +58,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ##### Proxy
 
-The app is currently configured to proxy all non-matched URLs to localhost:4000, meaning that any routes not matching the app will automatically be forwarded to the back-end. This behavior can be changed in `package.json`.
+The app can be configured to proxy all non-matched URLs, meaning that any routes not matching the app will automatically be forwarded elsewhere. This behavior can be enabled with the following entry in `package.json`:
+
+```"proxy": "http://localhost:4444"```
 
 <hr>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+<hr>
 
 author: hellkat_ ([@hellkat_](https://twitter.com/hellkat_))
