@@ -12,7 +12,7 @@ const StyledDiv = styled.div`
   width: 100%;
 `;
 
-const ChatPage = () => {
+const Chat = () => {
   const [msg, setMsg] = useState('');
   const [log, setLog] = useState([]);
 
@@ -36,4 +36,4 @@ const ChatPage = () => {
   )
 }
 
-export default ChatPage;
+export default Chat;

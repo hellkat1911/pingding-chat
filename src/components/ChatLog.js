@@ -6,7 +6,8 @@ const StyledUl = styled.ul`
   padding-left: 0;
 
   & li {
-    background-color: #fff;
+    background-color: #000656;
+    color: #fff;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     list-style-type: none;
@@ -14,8 +15,8 @@ const StyledUl = styled.ul`
     width: 100%;
   }
   & li:nth-of-type(2n) {
-    background-color: #333;
-    color: #fff;
+    background-color: #858585;
+    color: #000;
   }
 `;
 

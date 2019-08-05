@@ -1,29 +1,32 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const StyledInput = styled.input`
+const StyledForm = styled.form`
+  background-color: #ccc;
   bottom: 0;
+  display: flex;
+  position: fixed;
+  width: 100%;
+`;
+
+const StyledInput = styled.input`
   font-family: inherit;
   font-size: 1.8rem;
   margin: 10px;
   min-height: 35px;
-  max-width: 100%;
+  max-width: calc(100% - 140px);
   padding: 0;
-  position: fixed;
   resize: none;
-  width: calc(100% - 140px);
+  width: 100%;
 `;
 
 const StyledButton = styled.button`
   background-color: #000;
   border: 2px outset ThreeDDarkShadow;
-  bottom: 0;
   color: #fff;
   font-weight: bold;
   margin: 10px;
   min-height: 35px;
-  position: fixed;
-  right: 0;
   text-transform: uppercase;
   width: 115px;
 `;
@@ -43,10 +46,10 @@ const ChatBox = (props) => {
 
   return (
     <>
-      <form onSubmit={sendMsg}>
+      <StyledForm onSubmit={sendMsg}>
         <StyledInput value={msg} onChange={handleMsg} placeholder="Type message here..." />
         <StyledButton type="submit">Send</StyledButton>
-      </form>
+      </StyledForm>
     </>
   )
 }
