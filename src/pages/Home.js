@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <p>This is the React Chat home</p>
+    <div>
+      <p>This is Pingding home</p>
+      <Link to="/chat">Enter Pingding chat :)</Link>
+    </div>
   );
 };
 
