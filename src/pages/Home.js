@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <p>This is Pingding home</p>
-      <Link to="/chat">Enter Pingding chat :)</Link>
+      <Link to="/chat">Enter Pingding chat {`:)`}</Link>
     </div>
   );
 };
