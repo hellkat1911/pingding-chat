@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
@@ -32,26 +33,30 @@ const StyledButton = styled.button`
 `;
 
 const ChatBox = (props) => {
-  const [msg, setMsg] = useState('');
+  const [msgCache, setMsgCache] = useState('');
 
   function handleMsg(e) {
-    setMsg(e.target.value);
+    setMsgCache(e.target.value);
   }
 
   function sendMsg(e) {
     e.preventDefault();
-    props.callback(msg);
-    setMsg('');
+    props.callback(msgCache);
+    setMsgCache('');
   }
 
   return (
     <>
-      <StyledForm onSubmit={sendMsg}>
-        <StyledInput value={msg} onChange={handleMsg} placeholder="Type message here..." />
+      <StyledForm onSubmit={(e) => sendMsg(e)}>
+        <StyledInput value={msgCache} onChange={(e) => handleMsg(e)} placeholder="Type message here..." />
         <StyledButton type="submit">Send</StyledButton>
       </StyledForm>
     </>
   )
 }
+
+ChatBox.propTypes = {
+  callback: PropTypes.func.isRequired
+};
 
 export default ChatBox;

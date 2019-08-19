@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import TopNav from './TopNav';
@@ -16,6 +16,7 @@ const StyledMain = styled.main`
 
 const StyledLoader = styled.div`
   font-size: 2.2rem;
+  font-weight: bold;
   left: 50%;
   position: absolute;
   top: 50%;
@@ -23,14 +24,17 @@ const StyledLoader = styled.div`
 `;
 
 const AppRouter = () => {
+
+  const [username, setUsername] = useState('');
+
   return (
     <Router>
       <TopNav />
       <StyledMain id="pd-main">
         <Suspense fallback={<StyledLoader>Loading...</StyledLoader>}>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/chat" component={Chat} />
+            <Route exact path="/" render={() => <Home callback={setUsername} />} />
+            <Route path="/chat" render={() => <Chat username={username} />} />
             <Route component={FourOhFour} />
           </Switch>
         </Suspense>

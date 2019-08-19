@@ -12,13 +12,22 @@ io.on('connection', socket => {
   
   console.log('A user connected...');
 
-  socket.on('chat message', msg => {
-    io.emit('chat message', msg);
-  });
-});
+  socket.on('add user', username => {
+    socket.username = username;
 
-io.on('disconnect', socket => {
-  console.log('User has disconnected.');
+  });
+
+  socket.on('chat message', ({id, msg}) => {
+    io.emit('new message', {
+      id,
+      username: socket.username,
+      message: msg
+    });
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`${socket.username} has disconnected.`);
+  });
 });
 
 http.listen(PORT, function() {

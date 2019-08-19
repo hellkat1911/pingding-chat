@@ -22,7 +22,7 @@ const StyledNav = styled.nav`
     }
   }
 
-  & h1 {
+  & h2 {
     margin: 0;
   }
 `;
@@ -31,7 +31,7 @@ const TopNav = (props) => {
   return (
     <StyledNav id="pd-nav">
       <Link to="/">
-        <h1>PingDing</h1>
+        <h2>PingDing</h2>
       </Link>
     </StyledNav>
   );
