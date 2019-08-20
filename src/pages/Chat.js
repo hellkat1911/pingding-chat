@@ -20,14 +20,7 @@ const Chat = (props) => {
   const [log, setLog] = useState([]);
 
   function addToLog(id, user, msg) {
-    setLog([
-      ...log,
-      {
-        id,
-        user,
-        msg
-      }
-    ]);
+    setLog([...log, { id, user, msg }]);
   }
 
   useEffect(() => {
