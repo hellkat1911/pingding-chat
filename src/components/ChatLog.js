@@ -16,7 +16,7 @@ const StyledMsg = styled.div`
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     max-width: 50%;
-    padding: 15px 25px;
+    padding: 15px 30px 20px;
     position: absolute;
     width: auto;
 

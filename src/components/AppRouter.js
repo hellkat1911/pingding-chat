@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import TopNav from './TopNav';
 
@@ -34,7 +34,9 @@ const AppRouter = () => {
         <Suspense fallback={<StyledLoader>Loading...</StyledLoader>}>
           <Switch>
             <Route exact path="/" render={() => <Home callback={setUsername} />} />
-            <Route path="/chat" render={() => <Chat username={username} />} />
+            <Route path="/chat" render={() => 
+              !username ? <Redirect to="/" callback={setUsername} /> : <Chat username={username} />
+            } />
             <Route component={FourOhFour} />
           </Switch>
         </Suspense>
