@@ -26,7 +26,7 @@ const Home = (props) => {
   return (
     <StyledHome id="pd-home">
       <div id="pd-marquee">
-        <h1>PingDing</h1>
+        <h1>Pingding</h1>
         <p>The web-based chat app for everybody.</p>
       </div>
       <Login setUsername={props.callback} />

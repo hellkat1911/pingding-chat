@@ -15,7 +15,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "front": "PORT=7777 react-scripts start",
+    "front": "PORT=7777 BROWSER=none react-scripts start",
     "back": "nodemon server.js",
     "start": "concurrently \"npm run front\" \"npm run back\" --names \"💻,📦\" --prefix name",
     "build": "react-scripts build",
