@@ -13,6 +13,8 @@ const StyledDiv = styled.div`
 `;
 
 const StyledInput = styled.input`
+  background-color: #dff6fb;
+  border: 1px solid #00b5dd;
   border-radius: 5px;
   display: block;
   left: 50%;
@@ -48,6 +50,8 @@ const StyledButton = styled.button`
     box-shadow: 2px 4px 5px #333;
     border: 2px solid #888;
     color: #fff;
+    cursor: unset;
+    transform: none;
   }
 `;
 

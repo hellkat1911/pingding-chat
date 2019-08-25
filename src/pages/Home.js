@@ -11,7 +11,9 @@ const StyledHome = styled.div`
     margin-bottom: 40px;
 
     & h1 {
+      font-family: 'Exo', Arial, sans-serif;
       font-size: 5rem;
+      font-weight: 900;
       margin-bottom: 10px;
     }
 
@@ -26,7 +28,7 @@ const Home = (props) => {
   return (
     <StyledHome id="pd-home">
       <div id="pd-marquee">
-        <h1>Pingding</h1>
+        <h1><span style={{ color: '#00b5dd' }}>P</span>ing<span style={{ color: '#dd0047' }}>d</span>ing</h1>
         <p>The web-based chat app for everybody.</p>
       </div>
       <Login setUsername={props.callback} />
