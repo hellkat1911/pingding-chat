@@ -59,7 +59,7 @@ const Login = withRouter(({ history, setUsername }) => {
 
   const [nameCache, setNameCache] = useState('');
   const input = createRef();
-  const isDisabled = nameCache.length === 0;
+  const isDisabled = nameCache.length === 0 || nameCache.length > 50;
 
   useEffect(() => {
     input.current.focus();
@@ -67,10 +67,6 @@ const Login = withRouter(({ history, setUsername }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (nameCache.length > 50) {
-      return;
-    }
 
     setUsername(nameCache);
     history.push('/chat');
