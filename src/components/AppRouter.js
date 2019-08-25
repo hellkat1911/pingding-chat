@@ -10,7 +10,7 @@ const FourOhFour = lazy(() => import('../pages/FourOhFour'));
 
 const StyledMain = styled.main`
   background-color: #fff;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 60px);
   position: relative;
 `;
 

@@ -12,6 +12,7 @@ const socket = openSocket(settings.chat_uri);
 
 const StyledDiv = styled.div`
   display: inline-block;
+  margin-bottom: 55px;
   width: 100%;
 `;
 

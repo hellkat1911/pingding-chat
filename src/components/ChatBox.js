@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-  background-color: #ccc;
+  background-color: #dff6fb;
+  border-top: 1px solid #00b5dd;
   bottom: 0;
   display: flex;
   position: fixed;
@@ -11,19 +12,20 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
+  border: 1px solid #00b5dd;
   font-family: inherit;
   font-size: 1.8rem;
   margin: 10px;
   min-height: 35px;
   max-width: calc(100% - 140px);
-  padding: 0;
+  padding: 5px;
   resize: none;
   width: 100%;
 `;
 
 const StyledButton = styled.button`
-  background-color: #000;
-  border: 2px outset ThreeDDarkShadow;
+  background-color: #dd0047;
+  border: none;
   color: #fff;
   font-weight: bold;
   margin: 10px;

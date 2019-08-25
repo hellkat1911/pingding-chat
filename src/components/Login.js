@@ -6,6 +6,10 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   color: #888;
   font-size: 1.8rem;
+
+  & p {
+    font-size: 1.5rem;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -21,8 +25,8 @@ const StyledInput = styled.input`
 `;
 
 const StyledButton = styled.button`
-  background-color: #00b5dd;
-  border: 2px solid #00b5dd;
+  background-color: #dd0047;
+  border: 2px solid #dd0047;
   box-shadow: 2px 4px 5px #777;
   color: #fff;
   cursor: pointer;
@@ -34,15 +38,24 @@ const StyledButton = styled.button`
 
   &:hover {
     background-color: #fff;
-    color: #00b5dd;
+    color: #dd0047;
     transform: scale(1.1);
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: #888;
+    box-shadow: 2px 4px 5px #333;
+    border: 2px solid #888;
+    color: #fff;
   }
 `;
 
 const Login = withRouter(({ history, setUsername }) => {
 
   const [nameCache, setNameCache] = useState('');
-  const input = createRef()
+  const input = createRef();
+  const isDisabled = nameCache.length === 0;
 
   useEffect(() => {
     input.current.focus();
@@ -61,7 +74,7 @@ const Login = withRouter(({ history, setUsername }) => {
 
   return (
     <StyledDiv id="pd-login">
-      <p>Enter your username below.</p>
+      <p>Enter your username to begin.</p>
       <form onSubmit={(e) => handleSubmit(e)}>
         <StyledInput
           id="username"
@@ -70,7 +83,7 @@ const Login = withRouter(({ history, setUsername }) => {
           type="text"
           onChange={(e) => setNameCache(e.target.value)}
         />
-        <StyledButton type="submit">Enter</StyledButton>
+        <StyledButton type="submit" disabled={isDisabled}>Enter</StyledButton>
       </form>
     </StyledDiv>
   )
