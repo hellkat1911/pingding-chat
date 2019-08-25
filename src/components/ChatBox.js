@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -34,6 +34,11 @@ const StyledButton = styled.button`
 
 const ChatBox = (props) => {
   const [msgCache, setMsgCache] = useState('');
+  const input = createRef();
+
+  useEffect(() => {
+    input.current.focus();
+  });
 
   function handleMsg(e) {
     setMsgCache(e.target.value);
@@ -48,7 +53,7 @@ const ChatBox = (props) => {
   return (
     <>
       <StyledForm onSubmit={(e) => sendMsg(e)}>
-        <StyledInput value={msgCache} onChange={(e) => handleMsg(e)} placeholder="Type message here..." />
+        <StyledInput value={msgCache} ref={input} onChange={(e) => handleMsg(e)} placeholder="Type message here..." />
         <StyledButton type="submit">Send</StyledButton>
       </StyledForm>
     </>

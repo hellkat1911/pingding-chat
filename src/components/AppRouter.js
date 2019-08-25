@@ -35,7 +35,7 @@ const AppRouter = () => {
           <Switch>
             <Route exact path="/" render={() => <Home callback={setUsername} />} />
             <Route path="/chat" render={() => 
-              !username ? <Redirect to="/" callback={setUsername} /> : <Chat username={username} />
+              !username ? <Redirect to="/" /> : <Chat username={username} />
             } />
             <Route component={FourOhFour} />
           </Switch>
