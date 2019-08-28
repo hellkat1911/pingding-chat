@@ -3,30 +3,33 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const dotenv = require('dotenv');
 
-dotenv.config({ path: './settings.env' });
+dotenv.config({ path: './.env' });
 
 const HOST = process.env.CHAT_HOST;
 const PORT = process.env.CHAT_PORT;
 
 io.on('connection', socket => {
+
+  console.log('"connection" event fired');
   
-  console.log('A user connected...');
-
   socket.on('add user', username => {
-    socket.username = username;
+    console.log(`"add user" event fired`);
 
+    socket.username = username;
   });
 
   socket.on('chat message', ({id, msg}) => {
+    console.log(`"chat message" event fired`);
+    
     io.emit('new message', {
       id,
-      username: socket.username,
-      message: msg
+      user: socket.username,
+      msg
     });
   });
 
   socket.on('disconnect', () => {
-    console.log(`${socket.username} has disconnected.`);
+    console.log(`"disconnect" event fired`);
   });
 });
 

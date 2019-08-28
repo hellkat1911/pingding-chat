@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createRef } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -55,15 +55,15 @@ const StyledButton = styled.button`
   }
 `;
 
-const Login = withRouter(({ history, setUsername }) => {
+const Login = withRouter(({ history, setUsername, username }) => {
 
   const [nameCache, setNameCache] = useState('');
   const input = createRef();
   const isDisabled = nameCache.length === 0 || nameCache.length > 50;
 
   useEffect(() => {
-    input.current.focus();
-  });
+    input.current && input.current.focus();
+  }, [input]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,21 +72,28 @@ const Login = withRouter(({ history, setUsername }) => {
     history.push('/chat');
   };
 
-  return (
-    <StyledDiv id="pd-login">
-      <p>Enter your username to begin.</p>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <StyledInput
-          id="username"
-          name="username"
-          ref={input}
-          type="text"
-          onChange={(e) => setNameCache(e.target.value)}
-        />
-        <StyledButton type="submit" disabled={isDisabled}>Enter</StyledButton>
-      </form>
-    </StyledDiv>
-  )
+  return username
+    ? (
+      <StyledDiv id="pd-login">
+        <p>Hi {username}</p>
+        <Link to="/chat">Return to chat</Link>
+      </StyledDiv>
+    )
+    : (
+      <StyledDiv id="pd-login">
+        <p>Enter your username to begin.</p>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <StyledInput
+            id="username"
+            name="username"
+            ref={input}
+            type="text"
+            onChange={(e) => setNameCache(e.target.value)}
+          />
+          <StyledButton type="submit" disabled={isDisabled}>Enter</StyledButton>
+        </form>
+      </StyledDiv>
+    )
 });
 
 Login.propTypes = {

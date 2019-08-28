@@ -33,9 +33,11 @@ const AppRouter = () => {
       <StyledMain id="pd-main">
         <Suspense fallback={<StyledLoader>Loading...</StyledLoader>}>
           <Switch>
-            <Route exact path="/" render={() => <Home callback={setUsername} />} />
+            <Route exact path="/" render={() => <Home callback={setUsername} username={username} />} />
             <Route path="/chat" render={() => 
-              !username ? <Redirect to="/" /> : <Chat username={username} />
+              username
+                ? <Chat username={username} />
+                : <Redirect to="/" />
             } />
             <Route component={FourOhFour} />
           </Switch>

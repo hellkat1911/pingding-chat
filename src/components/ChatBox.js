@@ -35,27 +35,28 @@ const StyledButton = styled.button`
 `;
 
 const ChatBox = (props) => {
-  const [msgCache, setMsgCache] = useState('');
+  const [text, setText] = useState('');
   const input = createRef();
 
   useEffect(() => {
     input.current.focus();
-  });
+  }, [input]);
 
   function handleMsg(e) {
-    setMsgCache(e.target.value);
+    setText(e.target.value);
   }
 
   function sendMsg(e) {
     e.preventDefault();
-    props.callback(msgCache);
-    setMsgCache('');
+    
+    props.callback(text);
+    setText('');
   }
 
   return (
     <>
       <StyledForm onSubmit={(e) => sendMsg(e)}>
-        <StyledInput value={msgCache} ref={input} onChange={(e) => handleMsg(e)} placeholder="Type message here..." />
+        <StyledInput value={text} ref={input} onChange={(e) => handleMsg(e)} placeholder="Type message here..." />
         <StyledButton type="submit">Send</StyledButton>
       </StyledForm>
     </>

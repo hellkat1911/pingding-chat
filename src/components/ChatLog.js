@@ -18,7 +18,7 @@ const StyledMsg = styled.div`
     font-size: 1.6rem;
     margin: 5px;
     max-width: calc(50% - 20px);
-    padding: 15px 30px 20px 20px;
+    padding: 10px 30px 15px 20px;
     position: relative;
     width: auto;
 

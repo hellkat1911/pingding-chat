@@ -20,24 +20,40 @@ const Chat = (props) => {
   const [msg, setMsg] = useState('');
   const [log, setLog] = useState([]);
 
-  function addToLog(id, user, msg) {
-    setLog([...log, { id, user, msg }]);
-  }
-
   useEffect(() => {
-    if (!socket.username) {
+    if (socket.connected) {
+      socket.emit('add user', props.username);
+    } else {
+      socket.connect();
       socket.emit('add user', props.username);
     }
 
+    if (!socket.username || socket.username !== props.username) {
+      socket.username = props.username;
+    }
+  }, [props.username]);
+
+  useEffect(() => {
     if (msg) {
       const id = uuid.v4();
       socket.emit('chat message', { id, msg });
+      setMsg('');
     }
-  }, [props.username, msg]);
+  }, [msg]);
 
-  socket.on('new message', ({id, username, message}) => {
-    addToLog(id, username, message);
-  });
+  useEffect(() => {
+    socket.on('new message', ({id, user, msg}) => {
+      setLog(log => [...log, { id, user, msg }]);
+    });
+    return () => socket.off('new message');
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      // Fire disconnect on component unmount
+      socket.disconnect();
+    } 
+  }, []);
 
   return (
     <div id="pd-chat">

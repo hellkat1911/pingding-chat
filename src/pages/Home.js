@@ -13,7 +13,7 @@ const Home = (props) => {
   return (
     <StyledHome id="pd-home">
       <Marquee />
-      <Login setUsername={props.callback} />
+      <Login setUsername={props.callback} username={props.username} />
     </StyledHome>
   );
 };
