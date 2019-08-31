@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-  background-color: #ccc;
+  background-color: #dff6fb;
+  border-top: 1px solid #00b5dd;
   bottom: 0;
   display: flex;
   position: fixed;
@@ -10,19 +12,20 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
+  border: 1px solid #00b5dd;
   font-family: inherit;
   font-size: 1.8rem;
   margin: 10px;
   min-height: 35px;
   max-width: calc(100% - 140px);
-  padding: 0;
+  padding: 5px;
   resize: none;
   width: 100%;
 `;
 
 const StyledButton = styled.button`
-  background-color: #000;
-  border: 2px outset ThreeDDarkShadow;
+  background-color: #dd0047;
+  border: none;
   color: #fff;
   font-weight: bold;
   margin: 10px;
@@ -32,26 +35,36 @@ const StyledButton = styled.button`
 `;
 
 const ChatBox = (props) => {
-  const [msg, setMsg] = useState('');
+  const [text, setText] = useState('');
+  const input = createRef();
+
+  useEffect(() => {
+    input.current.focus();
+  }, [input]);
 
   function handleMsg(e) {
-    setMsg(e.target.value);
+    setText(e.target.value);
   }
 
   function sendMsg(e) {
     e.preventDefault();
-    props.callback(msg);
-    setMsg('');
+    
+    props.callback(text);
+    setText('');
   }
 
   return (
     <>
-      <StyledForm onSubmit={sendMsg}>
-        <StyledInput value={msg} onChange={handleMsg} placeholder="Type message here..." />
+      <StyledForm onSubmit={(e) => sendMsg(e)}>
+        <StyledInput value={text} ref={input} onChange={(e) => handleMsg(e)} placeholder="Type message here..." />
         <StyledButton type="submit">Send</StyledButton>
       </StyledForm>
     </>
   )
 }
+
+ChatBox.propTypes = {
+  callback: PropTypes.func.isRequired
+};
 
 export default ChatBox;

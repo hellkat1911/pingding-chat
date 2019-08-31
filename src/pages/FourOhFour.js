@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -13,8 +13,8 @@ const StyledH1 = styled.h1`
 const FourOhFour = () => {
   return (
     <StyledDiv>
-      <StyledH1>404: The requested page is non-existant or imaginary :(</StyledH1>
-      <Link to="/">Go to your home</Link>
+      <StyledH1>404: The requested page is non-existant, non-functional, or imaginary :(</StyledH1>
+      <Link to="/">Go to a real page (Home)</Link>
     </StyledDiv>
   );
 };

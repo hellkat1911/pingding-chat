@@ -1,12 +1,10 @@
-import React from 'react';
-import Page from './Page';
+import React from 'react'
+import AppRouter from './AppRouter';
 
-function App() {
+const App = () => {
   return (
-    <div className="app">
-      <Page />
-    </div>
+    <AppRouter />
   );
-}
+};
 
 export default App;
