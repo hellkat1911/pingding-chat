@@ -42,26 +42,24 @@ const ChatBox = (props) => {
     input.current.focus();
   }, [input]);
 
-  function handleMsg(e) {
-    setText(e.target.value);
+  function handleMsg(event) {
+    setText(event.target.value);
   }
 
-  function sendMsg(e) {
-    e.preventDefault();
+  function sendMsg(event) {
+    event.preventDefault();
     
     props.callback(text);
     setText('');
   }
 
   return (
-    <>
-      <StyledForm onSubmit={(e) => sendMsg(e)}>
-        <StyledInput value={text} ref={input} onChange={(e) => handleMsg(e)} placeholder="Type message here..." />
-        <StyledButton type="submit">Send</StyledButton>
-      </StyledForm>
-    </>
-  )
-}
+    <StyledForm onSubmit={sendMsg}>
+      <StyledInput value={text} ref={input} onChange={handleMsg} placeholder="Type your ping here..." />
+      <StyledButton type="submit">Send</StyledButton>
+    </StyledForm>
+  );
+};
 
 ChatBox.propTypes = {
   callback: PropTypes.func.isRequired

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import openSocket from 'socket.io-client';
 import uuid from 'uuid';
@@ -52,7 +52,7 @@ const Chat = (props) => {
     return () => {
       // Fire disconnect on component unmount
       socket.disconnect();
-    } 
+    };
   }, []);
 
   return (

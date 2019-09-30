@@ -28,7 +28,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const TopNav = (props) => {
+const TopNav = () => {
   return (
     <StyledNav id="pd-nav">
       <Hamburger />

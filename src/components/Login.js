@@ -65,11 +65,17 @@ const Login = withRouter(({ history, setUsername, username }) => {
     input.current && input.current.focus();
   }, [input]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = event => {
+    event.preventDefault();
+    
     setUsername(nameCache);
     history.push('/chat');
+  };
+
+  const handleChange = event => {
+    event.preventDefault();
+
+    setNameCache(event.target.value);
   };
 
   return username
@@ -82,18 +88,18 @@ const Login = withRouter(({ history, setUsername, username }) => {
     : (
       <StyledDiv id="pd-login">
         <p>Enter your username to begin.</p>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={handleSubmit}>
           <StyledInput
             id="username"
             name="username"
-            ref={input}
             type="text"
-            onChange={(e) => setNameCache(e.target.value)}
+            onChange={handleChange}
+            ref={input}
           />
           <StyledButton type="submit" disabled={isDisabled}>Enter</StyledButton>
         </form>
       </StyledDiv>
-    )
+    );
 });
 
 Login.propTypes = {

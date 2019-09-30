@@ -20,6 +20,6 @@ const Home = (props) => {
 
 Home.propTypes = {
   callback: PropTypes.func.isRequired
-}
+};
 
 export default Home;

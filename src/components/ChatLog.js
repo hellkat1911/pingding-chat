@@ -75,19 +75,18 @@ const StyledMsg = styled.div`
   }
 `;
 
-const ChatLog = (props) => {
+const ChatLog = props => {
   return (
     <StyledContainer>
-      {props.log && props.log.map((item) => (
-        <React.Fragment key={item.id}>
-          <StyledMsg>
-            <p className={props.currentUser === item.user ? 'pd-own-msg' : 'pd-oth-msg'}>
-              <span>{item.user}</span>
-              <br />
-              {item.msg}
-            </p>
-          </StyledMsg>
-        </React.Fragment>
+      {props.log.map(item => (
+        <StyledMsg key={item.id}>
+          {/* TODO: more robust differentiation */}
+          <p className={props.currentUser === item.user ? 'pd-own-msg' : 'pd-oth-msg'}>
+            <span>{item.user}</span>
+            <br />
+            {item.msg}
+          </p>
+        </StyledMsg>
       ))}
     </StyledContainer>
   );
